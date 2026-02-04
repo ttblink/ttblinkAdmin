@@ -1,0 +1,117 @@
+Building configuration...
+
+Current configuration : 3045 bytes
+!
+! No configuration change since last restart
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime localtime
+no service password-encryption
+!
+hostname SH_1YEY_254.100
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$kcaC$BkIBs0A/SO0QIghsBsk8a.
+!
+!
+!
+no aaa new-model
+clock timezone beijing 8
+system mtu routing 1500
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-2811577728
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-2811577728
+ revocation-check none
+ rsakeypair TP-self-signed-2811577728
+!
+!
+crypto pki certificate chain TP-self-signed-2811577728
+ certificate self-signed 01
+  30820248 308201B1 A0030201 02020101 300D0609 2A864886 F70D0101 04050030
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274
+  69666963 6174652D 32383131 35373737 3238301E 170D3933 30333031 30303031
+  35345A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D32 38313135
+  37373732 3830819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281
+  8100B3EB 68D63369 46691648 0F400EE1 CA3386D4 45E93112 CAE07A80 156691CE
+  7241A930 868C108F 055F6834 49C91C7A 84FB8653 EEC40101 BDE94E60 923694BF
+  1C0923A7 EC5458BE 727966A5 7862443C 3E5DCF3C 87A90380 1ABF50AB 17E59B5E
+  498DCD1D CCEACC50 33EFD72F 8F5CBBDA E451C77F 12ED9417 A762C0B6 5E40746C
+  7BC50203 010001A3 70306E30 0F060355 1D130101 FF040530 030101FF 301B0603
+  551D1104 14301282 1053485F 31594559 5F323534 2E313030 2E301F06 03551D23
+  04183016 801468F4 8997EC4B AE608A78 CB4C08D5 6A49D308 B48A301D 0603551D
+  0E041604 1468F489 97EC4BAE 608A78CB 4C08D56A 49D308B4 8A300D06 092A8648
+  86F70D01 01040500 03818100 33D781B1 5617990C FB40AF09 7AA3EF1B C45C94CC
+  0600B97F B740E28F E15A72AA 0058AC1D 37693829 1053E507 A17662FB 79EDE792
+  8B8E60A1 23B690A5 A7EC9E52 580F0295 791A6717 B4F9FC46 1052662A ECD0D081
+  0634C8E4 A92D10F5 E033A9DF 99A9C409 BFCD5C2E 4FC20F71 1CF070A8 2572E5AA
+  175CB754 069F0E28 86E473ED
+  quit
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+!
+!
+interface FastEthernet0/1
+ switchport access vlan 8
+!
+interface FastEthernet0/2
+ switchport access vlan 8
+!
+interface FastEthernet0/3
+ switchport access vlan 25
+!
+interface FastEthernet0/4
+ switchport access vlan 25
+!
+interface FastEthernet0/5
+ switchport access vlan 38
+!
+interface FastEthernet0/6
+ switchport access vlan 8
+!
+interface FastEthernet0/7
+ switchport access vlan 8
+!
+interface FastEthernet0/8
+ description KQJ_169
+ switchport access vlan 14
+ switchport mode access
+!
+interface GigabitEthernet0/1
+ description to SDMQ_200
+ switchport mode trunk
+!
+interface Vlan1
+ ip address 172.18.254.100 255.255.254.0
+!
+ip default-gateway 172.18.255.2
+ip http server
+ip http secure-server
+logging facility local4
+logging 182.182.182.253
+snmp-server community xgky RO
+!
+line con 0
+line vty 0 4
+ password cisco
+ login
+line vty 5 15
+ login
+!
+ntp clock-period 36029365
+ntp server 10.28.96.99
+end

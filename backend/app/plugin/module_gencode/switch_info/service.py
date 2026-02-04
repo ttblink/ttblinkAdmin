@@ -11,11 +11,11 @@ from app.core.logger import log
 from app.api.v1.module_system.auth.schema import AuthSchema
 from .schema import SwitchInfoCreateSchema, SwitchInfoUpdateSchema, SwitchInfoOutSchema, SwitchInfoQueryParam
 from .crud import SwitchInfoCRUD
-
+from .switch import Switch
 
 class SwitchInfoService:
     """
-    交换机信息服务层
+    交换机数据服务层
     """
     
     @classmethod
@@ -87,8 +87,8 @@ class SwitchInfoService:
     async def batch_export_switch_info_service(cls, obj_list: list[dict]) -> bytes:
         """批量导出"""
         mapping_dict = {
-            'name': '名称',
             'ip': 'IP',
+            'name': '名称',
             'brand': '品牌',
             'model': '型号',
             'manageWay': '管理方式',
@@ -126,8 +126,8 @@ class SwitchInfoService:
     async def batch_import_switch_info_service(cls, auth: AuthSchema, file: UploadFile, update_support: bool = False) -> str:
         """批量导入"""
         header_dict = {
-            '名称': 'name',
             'IP': 'ip',
+            '名称': 'name',
             '品牌': 'brand',
             '型号': 'model',
             '管理方式': 'manageWay',
@@ -170,8 +170,8 @@ class SwitchInfoService:
                 count += 1
                 try:
                     data = {
-                        "name": row['name'],
                         "ip": row['ip'],
+                        "name": row['name'],
                         "brand": row['brand'],
                         "model": row['model'],
                         "manageWay": row['manageWay'],
@@ -213,8 +213,8 @@ class SwitchInfoService:
     async def import_template_download_switch_info_service(cls) -> bytes:
         """下载导入模板"""
         header_list = [
-            '名称',
             'IP',
+            '名称',
             '品牌',
             '型号',
             '管理方式',
@@ -242,3 +242,13 @@ class SwitchInfoService:
             selector_header_list=selector_header_list,
             option_list=option_list
         )
+    
+    @classmethod
+    async def get_switch_config_service(cls, auth: AuthSchema, data: dict) -> str:
+        """获取交换机配置备份文件内容"""
+        try:
+            result =await  Switch.get_switch_configuration_service(data)
+            return result
+        except Exception as e:
+            log.error(f"获取交换机配置备份文件内容失败: {str(e)}")
+            raise CustomException(msg=f"获取交换机配置备份文件内容失败")

@@ -84,6 +84,15 @@ const SwitchInfoAPI = {
       headers: { "Content-Type": "multipart/form-data" },
     });
   },
+
+  // 获取交换机配置备份文件
+  backupConfig(data:SwitchInfoConnectForm){
+    return request<ApiResponse<string>>({
+      url: `${API_PATH}/backup/config`,
+      method: "post",
+      data: data,
+    });
+  }
 };
 
 export default SwitchInfoAPI;
@@ -94,11 +103,14 @@ export default SwitchInfoAPI;
 
 // 列表查询参数
 export interface SwitchInfoPageQuery extends PageQuery {
-  name?: string;
   ip?: string;
+  name?: string;
   brand?: string;
   model?: string;
   manageWay?: string;
+  username?: string;
+  password?: string;
+  enablePassword?: string;
   serviceType?: string;
   location?: string;
   status?: string;
@@ -110,8 +122,8 @@ export interface SwitchInfoPageQuery extends PageQuery {
 
 // 列表展示项
 export interface SwitchInfoTable extends BaseType {
-  name?: string;
   ip?: string;
+  name?: string;
   brand?: string;
   model?: string;
   manageWay?: string;
@@ -128,8 +140,8 @@ export interface SwitchInfoTable extends BaseType {
 
 // 新增/修改/详情表单参数
 export interface SwitchInfoForm extends BaseFormType {
-  name?: string;
   ip?: string;
+  name?: string;
   brand?: string;
   model?: string;
   manageWay?: string;
@@ -138,4 +150,14 @@ export interface SwitchInfoForm extends BaseFormType {
   enablePassword?: string;
   serviceType?: string;
   location?: string;
+}
+
+export interface SwitchInfoConnectForm{
+  ip?: string;
+  name?: string;
+  brand?: string;
+  manageWay?: string;
+  username?: string;
+  password?: string;
+  enablePassword?: string;
 }

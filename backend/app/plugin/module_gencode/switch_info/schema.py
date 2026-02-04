@@ -8,10 +8,10 @@ from app.core.base_schema import BaseSchema, UserBySchema
 
 class SwitchInfoCreateSchema(BaseModel):
     """
-    交换机信息新增模型
+    交换机数据新增模型
     """
-    name: str = Field(default=..., description='名称')
     ip: str = Field(default=..., description='IP')
+    name: str = Field(default=..., description='名称')
     brand: str = Field(default=..., description='品牌')
     model: str = Field(default=..., description='型号')
     manageWay: str = Field(default=..., description='管理方式')
@@ -26,31 +26,31 @@ class SwitchInfoCreateSchema(BaseModel):
 
 class SwitchInfoUpdateSchema(SwitchInfoCreateSchema):
     """
-    交换机信息更新模型
+    交换机数据更新模型
     """
     ...
 
 
 class SwitchInfoOutSchema(SwitchInfoCreateSchema, BaseSchema, UserBySchema):
     """
-    交换机信息响应模型
+    交换机数据响应模型
     """
     model_config = ConfigDict(from_attributes=True)
 
 
 class SwitchInfoQueryParam:
-    """交换机信息查询参数"""
+    """交换机数据查询参数"""
 
     def __init__(
         self,
         name: str | None = Query(None, description="名称"),
-        model: str | None = Query(None, description="型号"),
         username: str | None = Query(None, description="用户名"),
-        password: str | None = Query(None, description="密码"),
-        enablePassword: str | None = Query(None, description="enable密码"),
         ip: str | None = Query(None, description="IP"),
         brand: str | None = Query(None, description="品牌"),
+        model: str | None = Query(None, description="型号"),
         manageWay: str | None = Query(None, description="管理方式"),
+        password: str | None = Query(None, description="密码"),
+        enablePassword: str | None = Query(None, description="enable密码"),
         serviceType: str | None = Query(None, description="服务类型"),
         location: str | None = Query(None, description="安装位置"),
         status: str | None = Query(None, description="是否启用(0:启用 1:禁用)"),
@@ -59,22 +59,22 @@ class SwitchInfoQueryParam:
         created_time: list[DateTimeStr] | None = Query(None, description="创建时间范围", examples=["2025-01-01 00:00:00", "2025-12-31 23:59:59"]),
         updated_time: list[DateTimeStr] | None = Query(None, description="更新时间范围", examples=["2025-01-01 00:00:00", "2025-12-31 23:59:59"]),
     ) -> None:
+        # 精确查询字段
+        self.ip = ip
         # 模糊查询字段
         self.name = ("like", name)
         # 精确查询字段
-        self.ip = ip
-        # 精确查询字段
         self.brand = brand
-        # 模糊查询字段
-        self.model = ("like", model)
+        # 精确查询字段
+        self.model = model
         # 精确查询字段
         self.manageWay = manageWay
         # 模糊查询字段
         self.username = ("like", username)
-        # 模糊查询字段
-        self.password = ("like", password)
-        # 模糊查询字段
-        self.enablePassword = ("like", enablePassword)
+        # 精确查询字段
+        self.password = password
+        # 精确查询字段
+        self.enablePassword = enablePassword
         # 精确查询字段
         self.serviceType = serviceType
         # 精确查询字段

@@ -9,7 +9,7 @@ from .schema import SwitchInfoCreateSchema, SwitchInfoUpdateSchema, SwitchInfoOu
 
 
 class SwitchInfoCRUD(CRUDBase[SwitchInfoModel, SwitchInfoCreateSchema, SwitchInfoUpdateSchema]):
-    """交换机信息数据层"""
+    """交换机数据数据层"""
 
     def __init__(self, auth: AuthSchema) -> None:
         """

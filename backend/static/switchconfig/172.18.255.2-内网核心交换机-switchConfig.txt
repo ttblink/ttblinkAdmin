@@ -1,0 +1,2010 @@
+#
+ version 7.1.070, Release 7568P01
+#
+mdc Admin id 1
+#
+ sysname Core_10506_2
+#
+ clock timezone beijing add 08:00:00
+#
+ip vpn-instance VRF_2B_HCSO
+ route-distinguisher 172.0.0.3:100
+ #
+ address-family ipv4
+ #
+ address-family ipv6
+#
+ telnet server enable
+#
+ forward-path-detection enable
+#
+ irf mac-address persistent always
+ irf auto-update enable
+ irf auto-merge enable
+ undo irf link-delay
+ irf member 1 priority 1
+ irf member 2 priority 1
+ irf mode normal
+#
+ resource-monitor resource ac chassis 1 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource agg_group chassis 1 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource arp chassis 1 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource ecmpgroup chassis 1 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource host chassis 1 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource ipmc chassis 1 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource ipv6_127 chassis 1 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource ipv6_128 chassis 1 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource ipv6_64 chassis 1 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource l2mc chassis 1 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource mac chassis 1 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource mqcin chassis 1 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource mqcout chassis 1 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource nd chassis 1 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource nexthoppool1 chassis 1 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource nexthoppool2 chassis 1 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource openflow chassis 1 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource pbr chassis 1 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource pfilterin chassis 1 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource pfilterout chassis 1 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource route chassis 1 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource rport chassis 1 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource vlaninterface chassis 1 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource vrf chassis 1 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource vsi chassis 1 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource vsiintf chassis 1 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource ac chassis 1 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource agg_group chassis 1 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource arp chassis 1 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource ecmpgroup chassis 1 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource host chassis 1 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource ipmc chassis 1 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource ipv6_127 chassis 1 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource ipv6_128 chassis 1 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource ipv6_64 chassis 1 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource l2mc chassis 1 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource mac chassis 1 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource mqcin chassis 1 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource mqcout chassis 1 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource nd chassis 1 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource nexthoppool1 chassis 1 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource nexthoppool2 chassis 1 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource openflow chassis 1 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource pbr chassis 1 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource pfilterin chassis 1 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource pfilterout chassis 1 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource route chassis 1 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource rport chassis 1 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource vlaninterface chassis 1 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource vrf chassis 1 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource vsi chassis 1 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource vsiintf chassis 1 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource ac chassis 2 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource agg_group chassis 2 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource arp chassis 2 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource ecmpgroup chassis 2 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource host chassis 2 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource ipmc chassis 2 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource ipv6_127 chassis 2 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource ipv6_128 chassis 2 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource ipv6_64 chassis 2 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource l2mc chassis 2 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource mac chassis 2 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource mqcin chassis 2 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource mqcout chassis 2 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource nd chassis 2 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource nexthoppool1 chassis 2 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource nexthoppool2 chassis 2 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource openflow chassis 2 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource pbr chassis 2 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource pfilterin chassis 2 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource pfilterout chassis 2 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource route chassis 2 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource rport chassis 2 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource vlaninterface chassis 2 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource vrf chassis 2 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource vsi chassis 2 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource vsiintf chassis 2 slot 1 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource ac chassis 2 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource agg_group chassis 2 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource arp chassis 2 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource ecmpgroup chassis 2 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource host chassis 2 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource ipmc chassis 2 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource ipv6_127 chassis 2 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource ipv6_128 chassis 2 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource ipv6_64 chassis 2 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource l2mc chassis 2 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource mac chassis 2 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource mqcin chassis 2 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource mqcout chassis 2 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource nd chassis 2 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource nexthoppool1 chassis 2 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource nexthoppool2 chassis 2 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource openflow chassis 2 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource pbr chassis 2 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource pfilterin chassis 2 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource pfilterout chassis 2 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource route chassis 2 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource rport chassis 2 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource vlaninterface chassis 2 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource vrf chassis 2 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource vsi chassis 2 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+ resource-monitor resource vsiintf chassis 2 slot 3 cpu 0 by-percent minor-threshold 20 severe-threshold 10
+#
+ospf 1
+ import-route direct route-policy To-XZ
+ import-route static route-policy To-XZ
+ area 0.0.0.1
+#
+ospf 2
+ import-route direct route-policy To-SCDD
+ import-route static route-policy To-SCDD
+ import-route ospf 101 route-policy HSCO-to-SCDD
+ area 0.0.0.0
+  network 200.200.202.3 0.0.0.0
+ area 0.0.0.1
+  network 13.1.1.0 0.0.0.255
+  network 26.1.1.0 0.0.0.255
+ area 0.0.0.2
+  network 14.1.1.0 0.0.0.3
+ area 0.0.0.3
+  network 15.1.1.0 0.0.0.7
+#
+ospf 101
+ import-route direct route-policy To-HCSO
+ import-route static route-policy To-HCSO
+ import-route ospf 2 route-policy SCDD-to-HCSO
+ area 0.0.0.0
+  network 192.168.254.4 0.0.0.3
+  network 192.168.254.12 0.0.0.3
+  network 192.168.254.20 0.0.0.3
+  network 192.168.254.28 0.0.0.3
+  network 192.168.254.40 0.0.0.3
+  network 192.168.254.44 0.0.0.3
+#
+ ip unreachables enable
+ ip ttl-expires enable
+#
+ dhcp enable
+#
+ mirroring-group 2 local
+ mirroring-group 3 local
+ mirroring-group 4 local
+#
+ lldp global enable
+#
+ loopback-detection global enable vlan 1 24
+#
+ system-working-mode standard
+ password-recovery enable
+#
+vlan 1
+ description Manager
+#
+vlan 2
+ description SERVER
+#
+vlan 3
+ description LINGDAO
+#
+vlan 4
+ description JIZHILIANG
+#
+vlan 5
+ description CAIWU
+#
+vlan 6
+ description KAIFA
+#
+vlan 7
+ description LAOZI
+#
+vlan 8
+ description OA
+#
+vlan 9
+ description KJZX
+#
+vlan 10
+ description LT
+#
+vlan 11
+ description 5M-ERP
+#
+vlan 12
+ description SCDD
+#
+vlan 13
+ description WLYS
+#
+vlan 14
+ description KQ
+#
+vlan 15
+ description XXZX_CAIGOU
+#
+vlan 16
+ description XXZX_XIAOSHOU
+#
+vlan 17
+ description XXZX_KUCUEN
+#
+vlan 18
+ description XXZX_ZHIZAO
+#
+vlan 19
+ description xxzx_2BangZiXiTong
+#
+vlan 20
+ description xxzx_YiYuan
+#
+vlan 21
+ description GaoXian
+#
+vlan 22
+ description 5MB_BGL
+#
+vlan 23
+ description RX_erp
+#
+vlan 24
+ description DongLi
+#
+vlan 25
+ description ShengHuo
+#
+vlan 26
+ description BWC
+#
+vlan 27
+ description YGX_KUCUEN
+#
+vlan 28
+ description KHB
+#
+vlan 29
+ description JiaoHua
+#
+vlan 31
+ name Wireless
+#
+vlan 32
+#
+vlan 33
+ description 2LG_bg
+#
+vlan 34
+ description HJJC
+#
+vlan 35
+ description WGB_CAIGOU
+#
+vlan 36
+ description WGB_XIAOSHOU
+#
+vlan 37
+ description WGB_KUCUEN
+#
+vlan 38
+ description WGB_ZHIZAO
+#
+vlan 39
+ description WGB_1BangCai
+#
+vlan 40
+ description CGB
+#
+vlan 41
+ name LingD
+#
+vlan 42
+ name GuoMao
+#
+vlan 43
+ name Zhaobiao
+#
+vlan 44
+#
+vlan 45
+ description DST_CAIGOU
+#
+vlan 46
+ description DST_XIAOSHOU
+#
+vlan 47
+ description DST_KUCUEN
+#
+vlan 48
+ description DST_ZHIZAO
+#
+vlan 49
+ description GongH
+#
+vlan 50
+ description MES_FW
+#
+vlan 52
+ description Kaifa
+#
+vlan 53
+ description NetMan
+#
+vlan 54
+ name AP_manage
+#
+vlan 55
+#
+vlan 56
+ name KaiFCS
+#
+vlan 60
+ name XZ
+#
+vlan 66
+ name sysnet-m
+#
+vlan 70
+ name zhihuimingjin
+#
+vlan 71
+ name CGB_AP_manage
+#
+vlan 72
+#
+vlan 84
+ name SPHY
+#
+vlan 172
+ name DMZ_172
+#
+vlan 189
+ name DCS
+#
+vlan 201 to 202
+#
+vlan 240
+#
+vlan 250
+#
+vlan 255
+ description to_dljk
+#
+vlan 260
+#
+vlan 300 to 302
+#
+vlan 1000 to 1002
+#
+irf-port 1/2
+ port group interface FortyGigE1/3/0/33 mode enhanced
+ port group interface FortyGigE1/3/0/34 mode enhanced
+#
+irf-port 2/1
+ port group interface FortyGigE2/3/0/33 mode enhanced
+ port group interface FortyGigE2/3/0/34 mode enhanced
+#
+traffic classifier a2 operator and
+ if-match acl 3031
+#
+traffic classifier e2 operator and
+ if-match acl 3021
+#
+traffic classifier mestest operator or
+ if-match acl 3010
+#
+traffic classifier tech_c operator and
+ if-match acl 3000
+#
+traffic behavior b2
+ redirect next-hop 172.17.254.2
+#
+traffic behavior f2
+ redirect next-hop 172.17.253.2
+#
+traffic behavior mestest
+ filter deny
+#
+traffic behavior tech_b
+ mirror-to interface GigabitEthernet1/1/0/9
+#
+qos policy c2
+ classifier a2 behavior b2
+#
+qos policy g2
+ classifier e2 behavior f2
+#
+qos policy mestest
+ classifier mestest behavior mestest
+#
+qos policy tech_p
+ classifier tech_c behavior tech_b
+#
+ stp vlan 1 to 55 60 66 172 189 root primary
+ stp mode pvst
+ stp global enable
+#
+dhcp server ip-pool CGB_AP_manage
+ gateway-list 172.20.110.1
+ network 172.20.110.0 mask 255.255.255.0
+#
+dhcp server ip-pool CGB_DB
+ gateway-list 172.20.111.1
+ network 172.20.111.0 mask 255.255.255.0
+#
+interface Bridge-Aggregation1
+ description to-YGX_7503E_6
+ port link-type trunk
+ port trunk permit vlan 1 to 1000 1003 to 4094
+#
+interface Bridge-Aggregation2
+ description to-ZX_S7003E
+ port link-type trunk
+ port trunk permit vlan 1 to 1000 1003 to 4094
+#
+interface Bridge-Aggregation3
+ description to_ZXJF_10
+ port link-type trunk
+ port trunk permit vlan 1 5 to 6 24 52 56 71 172
+#
+interface Bridge-Aggregation4
+ port link-type trunk
+ port trunk permit vlan 1 to 1000 1003 to 4094
+#
+interface Bridge-Aggregation10
+ port link-type trunk
+ undo port trunk permit vlan 1
+ port trunk permit vlan 53 55
+#
+interface Bridge-Aggregation11
+#
+interface Bridge-Aggregation15
+ description to ZXJF_D
+ port link-type trunk
+ port trunk permit vlan 1 50 52 172
+#
+interface Bridge-Aggregation28
+ port access vlan 50
+ link-aggregation mode dynamic
+#
+interface Bridge-Aggregation31
+ port access vlan 50
+ link-aggregation mode dynamic
+#
+interface Bridge-Aggregation100
+#
+interface Bridge-Aggregation1001
+ description to_campus_COREA
+ port link-type trunk
+ undo port trunk permit vlan 1
+ port trunk permit vlan 1001
+ link-aggregation mode dynamic
+#
+interface Bridge-Aggregation1002
+ description to_campus_COREB
+ port link-type trunk
+ undo port trunk permit vlan 1
+ port trunk permit vlan 1002
+ link-aggregation mode dynamic
+#
+interface Route-Aggregation1
+#
+interface Route-Aggregation2
+ description To_L3_cisco4506
+ ip address 8.1.1.1 255.255.255.252
+#
+interface Route-Aggregation11
+ ip address 14.1.1.1 255.255.255.252
+ packet-filter 3999 outbound
+#
+interface Route-Aggregation1000
+#
+interface Route-Aggregation1000.200
+ description to-PE5
+ ip address 192.168.254.6 255.255.255.252
+#
+interface Route-Aggregation1000.1000
+ description to-PE_n
+ ip address 192.168.254.14 255.255.255.252
+#
+interface Route-Aggregation1000.1100
+ ip address 192.168.254.42 255.255.255.252
+ ospf network-type p2p
+#
+interface Route-Aggregation1001
+#
+interface Route-Aggregation1001.200
+ ip address 192.168.254.22 255.255.255.252
+#
+interface Route-Aggregation1001.1000
+ ip address 192.168.254.30 255.255.255.252
+#
+interface Route-Aggregation1001.1100
+ ip address 192.168.254.46 255.255.255.252
+ ospf network-type p2p
+#
+interface NULL0
+#
+interface LoopBack0
+ ip address 200.200.202.3 255.255.255.255
+#
+interface Vlan-interface1
+ description manager
+ ip address 172.18.255.2 255.255.254.0
+#
+interface Vlan-interface3
+ ip address 172.18.20.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+ dhcp select relay
+ dhcp relay server-address 172.18.252.62
+ dhcp relay source-address 172.18.20.1
+#
+interface Vlan-interface4
+ ip address 172.18.4.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface5
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface6
+ ip address 172.18.12.1 255.255.255.0
+ packet-filter filter all
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface7
+ ip address 172.18.16.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface8
+ ip address 172.18.28.1 255.255.252.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface9
+ description KJZX
+ ip address 172.18.40.1 255.255.252.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface10
+ description LT
+ ip address 172.18.116.1 255.255.252.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface11
+ ip address 172.19.180.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface12
+ ip address 172.18.32.1 255.255.252.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface13
+ ip address 172.18.36.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface14
+ description desk_test
+ ip address 172.18.14.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+ dhcp select relay
+ dhcp relay server-address 172.18.252.40
+ dhcp relay source-address 172.18.14.1
+#
+interface Vlan-interface15
+ ip address 172.18.100.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface16
+ ip address 172.18.104.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface17
+ ip address 172.18.108.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface18
+ ip address 172.18.112.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface19
+ ip address 172.18.150.1 255.255.254.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface20
+ ip address 172.18.152.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface21
+ description GX
+ ip address 172.19.116.1 255.255.254.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface22
+ description 5MB_BG
+ ip address 172.19.184.1 255.255.254.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface23
+ description RX_erp
+ ip address 172.18.156.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface24
+ description DongLi
+ ip address 172.18.157.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface25
+ description SWGS
+ ip address 172.19.100.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface26
+ ip address 172.19.104.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface27
+ ip address 172.19.108.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface28
+ description KHB
+ ip address 172.19.112.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface29
+ description JiaoHua
+ ip address 172.19.120.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface31
+ description Wireless
+ ip address 172.18.22.1 255.255.254.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+ dhcp select relay
+ dhcp relay server-address 172.18.252.62
+ dhcp relay source-address 172.18.22.1
+#
+interface Vlan-interface32
+ ip address 172.19.196.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface33
+ description 2LG_bg
+ ip address 172.19.128.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface34
+ ip address 172.19.124.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface35
+ ip address 172.20.100.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface36
+ ip address 172.20.104.1 255.255.255.0
+#
+interface Vlan-interface37
+ ip address 172.20.108.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface38
+ ip address 172.20.112.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface39
+ ip address 172.20.150.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface40
+ ip address 172.21.105.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface41
+ ip address 172.18.18.1 255.255.255.0
+ dhcp select relay
+ dhcp relay server-address 172.18.252.62
+ dhcp relay source-address 172.18.18.1
+#
+interface Vlan-interface42
+ ip address 172.21.96.1 255.255.255.0
+#
+interface Vlan-interface43
+ ip address 172.21.97.1 255.255.255.0
+#
+interface Vlan-interface45
+ ip address 172.21.100.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface46
+ ip address 172.21.104.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface47
+ ip address 172.21.108.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface48
+ ip address 172.21.112.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface49
+ ip address 172.21.150.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface50
+ ip address 182.182.182.1 255.255.255.0
+#
+interface Vlan-interface52
+ ip address 172.18.13.1 255.255.255.0
+ packet-filter name anti-virus inbound
+ packet-filter name anti-virus outbound
+#
+interface Vlan-interface53
+ ip address 172.18.252.1 255.255.255.192
+#
+interface Vlan-interface54
+ description AP_manage
+ ip address 172.18.253.1 255.255.255.0
+ dhcp select relay
+ dhcp relay server-address 172.18.252.30
+ dhcp relay source-address 172.18.253.1
+#
+interface Vlan-interface55
+ ip address 172.18.251.1 255.255.255.0
+ dhcp select relay
+ dhcp relay server-address 172.18.252.10
+ dhcp relay source-address 172.18.251.1
+#
+interface Vlan-interface56
+ shutdown
+ ip address 172.18.15.1 255.255.255.0
+#
+interface Vlan-interface60
+ ip address 1.1.1.2 255.255.255.252
+#
+interface Vlan-interface66
+ ip address 172.18.66.1 255.255.255.0
+#
+interface Vlan-interface70
+ ip address 172.19.102.1 255.255.255.0
+#
+interface Vlan-interface71
+ description DB-manage
+ ip address 172.20.110.1 255.255.255.0
+#
+interface Vlan-interface72
+ description DB-data
+ ip address 172.20.111.1 255.255.255.0
+#
+interface Vlan-interface189
+ ip address 189.0.0.254 255.255.255.0
+#
+interface Vlan-interface240
+ ip address 15.1.1.1 255.255.255.248
+#
+interface Vlan-interface250
+ ip address 50.1.1.2 255.255.255.248
+#
+interface Vlan-interface255
+ ip address 28.28.28.6 255.255.255.248
+#
+interface Vlan-interface260
+ ip address 60.1.1.2 255.255.255.248
+#
+interface Vlan-interface300
+ ip address 172.17.255.1 255.255.255.0
+#
+interface Vlan-interface301
+ ip address 172.17.254.1 255.255.255.0
+#
+interface Vlan-interface302
+ ip address 172.17.253.1 255.255.255.0
+#
+interface Vlan-interface1001
+ ip address 172.16.254.2 255.255.255.252
+ packet-filter 3010 inbound
+#
+interface Vlan-interface1002
+ ip address 172.16.254.6 255.255.255.252
+ packet-filter 3010 inbound
+#
+interface FortyGigE1/3/0/35
+ port link-mode bridge
+#
+interface FortyGigE1/3/0/36
+ port link-mode bridge
+#
+interface FortyGigE2/3/0/35
+ port link-mode bridge
+#
+interface FortyGigE2/3/0/36
+ port link-mode bridge
+#
+interface FortyGigE1/3/0/33
+#
+interface FortyGigE1/3/0/34
+#
+interface FortyGigE2/3/0/33
+#
+interface FortyGigE2/3/0/34
+#
+interface GigabitEthernet1/1/0/1
+ port link-mode bridge
+ port link-type trunk
+ undo port trunk permit vlan 1
+ port trunk permit vlan 53 to 54
+#
+interface GigabitEthernet1/1/0/2
+ port link-mode bridge
+ port link-type trunk
+ undo port trunk permit vlan 1
+ port trunk permit vlan 53 55
+ port link-aggregation group 10
+#
+interface GigabitEthernet1/1/0/3
+ port link-mode bridge
+#
+interface GigabitEthernet1/1/0/4
+ port link-mode bridge
+ port link-type trunk
+ undo port trunk permit vlan 1
+ port trunk permit vlan 53 to 54
+#
+interface GigabitEthernet1/1/0/5
+ port link-mode bridge
+ port access vlan 50
+ stp edged-port
+#
+interface GigabitEthernet1/1/0/6
+ port link-mode bridge
+ port access vlan 172
+#
+interface GigabitEthernet1/1/0/7
+ port link-mode bridge
+ description to-ZXJF-255.7-shang
+ port link-type trunk
+ port trunk permit vlan 1 to 1000 1003 to 4094
+ port link-aggregation group 4
+#
+interface GigabitEthernet1/1/0/8
+ port link-mode bridge
+#
+interface GigabitEthernet1/1/0/9
+ port link-mode bridge
+ undo stp enable
+#
+interface GigabitEthernet1/1/0/10
+ port link-mode bridge
+#
+interface GigabitEthernet1/1/0/11
+ port link-mode bridge
+#
+interface GigabitEthernet1/1/0/12
+ port link-mode bridge
+#
+interface GigabitEthernet1/1/0/13
+ port link-mode bridge
+#
+interface GigabitEthernet1/1/0/14
+ port link-mode bridge
+#
+interface GigabitEthernet1/1/0/15
+ port link-mode bridge
+ port link-type trunk
+ port trunk permit vlan 1 52 301 to 302
+#
+interface GigabitEthernet1/1/0/16
+ port link-mode bridge
+ port access vlan 6
+ stp edged-port
+#
+interface GigabitEthernet1/1/0/17
+ port link-mode bridge
+ port link-type trunk
+ undo port trunk permit vlan 1
+ port trunk permit vlan 13
+ mirroring-group 2 monitor-port
+#
+interface GigabitEthernet1/1/0/18
+ port link-mode bridge
+ port access vlan 50
+#
+interface GigabitEthernet1/1/0/19
+ port link-mode bridge
+#
+interface GigabitEthernet1/1/0/20
+ port link-mode bridge
+#
+interface GigabitEthernet1/1/0/21
+ port link-mode bridge
+#
+interface GigabitEthernet1/1/0/22
+ port link-mode bridge
+#
+interface GigabitEthernet1/1/0/23
+ port link-mode bridge
+#
+interface GigabitEthernet1/1/0/24
+ port link-mode bridge
+#
+interface GigabitEthernet1/1/0/25
+ port link-mode bridge
+#
+interface GigabitEthernet1/1/0/26
+ port link-mode bridge
+#
+interface GigabitEthernet1/1/0/27
+ port link-mode bridge
+#
+interface GigabitEthernet1/1/0/28
+ port link-mode bridge
+#
+interface GigabitEthernet1/1/0/29
+ port link-mode bridge
+#
+interface GigabitEthernet1/1/0/30
+ port link-mode bridge
+#
+interface GigabitEthernet1/1/0/31
+ port link-mode bridge
+ port access vlan 50
+#
+interface GigabitEthernet1/1/0/32
+ port link-mode bridge
+ mirroring-group 4 monitor-port
+#
+interface GigabitEthernet1/1/0/33
+ port link-mode bridge
+#
+interface GigabitEthernet1/1/0/34
+ port link-mode bridge
+#
+interface GigabitEthernet1/1/0/35
+ port link-mode bridge
+ port access vlan 172
+#
+interface GigabitEthernet1/1/0/36
+ port link-mode bridge
+ port access vlan 50
+#
+interface GigabitEthernet1/1/0/37
+ port link-mode bridge
+ port access vlan 54
+#
+interface GigabitEthernet1/1/0/38
+ port link-mode bridge
+#
+interface GigabitEthernet1/1/0/39
+ port link-mode bridge
+ description fw_241_E4/3
+ port access vlan 50
+#
+interface GigabitEthernet1/1/0/40
+ port link-mode bridge
+ description fw_241_E0/3
+ port access vlan 50
+#
+interface GigabitEthernet1/1/0/41
+ port link-mode bridge
+#
+interface GigabitEthernet1/1/0/42
+ port link-mode bridge
+#
+interface GigabitEthernet1/1/0/43
+ port link-mode bridge
+#
+interface GigabitEthernet1/1/0/44
+ port link-mode bridge
+#
+interface GigabitEthernet1/1/0/45
+ port link-mode bridge
+ port access vlan 50
+#
+interface GigabitEthernet1/1/0/46
+ port link-mode bridge
+ port link-type trunk
+ port trunk permit vlan 1 41 55
+#
+interface GigabitEthernet1/1/0/47
+ port link-mode bridge
+ port access vlan 5
+#
+interface GigabitEthernet1/1/0/48
+ port link-mode bridge
+ port link-type trunk
+ port trunk permit vlan 1 to 1000 1003 to 4094
+ mirroring-group 2 mirroring-port both
+ port link-aggregation group 2
+#
+interface GigabitEthernet2/1/0/1
+ port link-mode bridge
+ port access vlan 172
+ mirroring-group 3 mirroring-port both
+#
+interface GigabitEthernet2/1/0/2
+ port link-mode bridge
+ port link-type trunk
+ undo port trunk permit vlan 1
+ port trunk permit vlan 53 55
+ port link-aggregation group 10
+#
+interface GigabitEthernet2/1/0/3
+ port link-mode bridge
+ mirroring-group 3 monitor-port
+#
+interface GigabitEthernet2/1/0/4
+ port link-mode bridge
+ port access vlan 66
+#
+interface GigabitEthernet2/1/0/5
+ port link-mode bridge
+#
+interface GigabitEthernet2/1/0/6
+ port link-mode bridge
+ port access vlan 172
+#
+interface GigabitEthernet2/1/0/7
+ port link-mode bridge
+ description to-ZXJF-255.7-xia
+ port link-type trunk
+ port trunk permit vlan 1 to 1000 1003 to 4094
+ port link-aggregation group 4
+#
+interface GigabitEthernet2/1/0/8
+ port link-mode bridge
+ port access vlan 66
+#
+interface GigabitEthernet2/1/0/9
+ port link-mode bridge
+#
+interface GigabitEthernet2/1/0/10
+ port link-mode bridge
+#
+interface GigabitEthernet2/1/0/11
+ port link-mode bridge
+#
+interface GigabitEthernet2/1/0/12
+ port link-mode bridge
+#
+interface GigabitEthernet2/1/0/13
+ port link-mode bridge
+#
+interface GigabitEthernet2/1/0/14
+ port link-mode bridge
+#
+interface GigabitEthernet2/1/0/15
+ port link-mode bridge
+#
+interface GigabitEthernet2/1/0/16
+ port link-mode bridge
+ port access vlan 6
+ stp edged-port
+#
+interface GigabitEthernet2/1/0/17
+ port link-mode bridge
+#
+interface GigabitEthernet2/1/0/18
+ port link-mode bridge
+#
+interface GigabitEthernet2/1/0/19
+ port link-mode bridge
+#
+interface GigabitEthernet2/1/0/20
+ port link-mode bridge
+#
+interface GigabitEthernet2/1/0/21
+ port link-mode bridge
+#
+interface GigabitEthernet2/1/0/22
+ port link-mode bridge
+#
+interface GigabitEthernet2/1/0/23
+ port link-mode bridge
+#
+interface GigabitEthernet2/1/0/24
+ port link-mode bridge
+#
+interface GigabitEthernet2/1/0/25
+ port link-mode bridge
+#
+interface GigabitEthernet2/1/0/26
+ port link-mode bridge
+#
+interface GigabitEthernet2/1/0/27
+ port link-mode bridge
+#
+interface GigabitEthernet2/1/0/28
+ port link-mode bridge
+#
+interface GigabitEthernet2/1/0/29
+ port link-mode bridge
+#
+interface GigabitEthernet2/1/0/30
+ port link-mode bridge
+#
+interface GigabitEthernet2/1/0/31
+ port link-mode bridge
+ port access vlan 66
+#
+interface GigabitEthernet2/1/0/32
+ port link-mode bridge
+#
+interface GigabitEthernet2/1/0/33
+ port link-mode bridge
+ port access vlan 56
+#
+interface GigabitEthernet2/1/0/34
+ port link-mode bridge
+ port access vlan 50
+#
+interface GigabitEthernet2/1/0/35
+ port link-mode bridge
+#
+interface GigabitEthernet2/1/0/36
+ port link-mode bridge
+#
+interface GigabitEthernet2/1/0/37
+ port link-mode bridge
+#
+interface GigabitEthernet2/1/0/38
+ port link-mode bridge
+#
+interface GigabitEthernet2/1/0/39
+ port link-mode bridge
+ description fw_242_E4/3
+ port access vlan 50
+ mirroring-group 2 mirroring-port both
+#
+interface GigabitEthernet2/1/0/40
+ port link-mode bridge
+ description fw_242_E0/3
+ port access vlan 50
+#
+interface GigabitEthernet2/1/0/41
+ port link-mode bridge
+#
+interface GigabitEthernet2/1/0/42
+ port link-mode bridge
+#
+interface GigabitEthernet2/1/0/43
+ port link-mode bridge
+#
+interface GigabitEthernet2/1/0/44
+ port link-mode bridge
+#
+interface GigabitEthernet2/1/0/45
+ port link-mode bridge
+ port access vlan 50
+#
+interface GigabitEthernet2/1/0/46
+ port link-mode bridge
+ port link-type trunk
+ port trunk permit vlan 1 41 55
+#
+interface GigabitEthernet2/1/0/47
+ port link-mode bridge
+ port access vlan 5
+#
+interface GigabitEthernet2/1/0/48
+ port link-mode bridge
+ port link-type trunk
+ port trunk permit vlan 1 to 1000 1003 to 4094
+ mirroring-group 2 mirroring-port both
+ port link-aggregation group 2
+#
+interface M-GigabitEthernet1/0/0/0
+#
+interface M-GigabitEthernet1/0/0/1
+#
+interface M-GigabitEthernet1/0/0/2
+#
+interface M-GigabitEthernet1/0/0/3
+#
+interface Ten-GigabitEthernet1/3/0/1
+ port link-mode route
+ ip address 26.1.1.2 255.255.255.0
+#
+interface Ten-GigabitEthernet1/3/0/3
+ port link-mode route
+ port link-aggregation group 11
+#
+interface Ten-GigabitEthernet1/3/0/26
+ port link-mode route
+#
+interface Ten-GigabitEthernet1/3/0/30
+ port link-mode route
+ port link-aggregation group 1000
+#
+interface Ten-GigabitEthernet2/3/0/1
+ port link-mode route
+ ip address 13.1.1.1 255.255.255.0
+#
+interface Ten-GigabitEthernet2/3/0/3
+ port link-mode route
+ port link-aggregation group 11
+#
+interface Ten-GigabitEthernet2/3/0/30
+ port link-mode route
+ port link-aggregation group 1001
+#
+interface Ten-GigabitEthernet1/3/0/2
+ port link-mode bridge
+ port link-type trunk
+ port trunk permit vlan 1 to 1000 1003 to 4094
+ mirroring-group 2 mirroring-port both
+ port link-aggregation group 1
+#
+interface Ten-GigabitEthernet1/3/0/4
+ port link-mode bridge
+ port link-type trunk
+ port trunk permit vlan 1 24 31 255
+#
+interface Ten-GigabitEthernet1/3/0/5
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet1/3/0/6
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet1/3/0/7
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet1/3/0/8
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet1/3/0/9
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet1/3/0/10
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet1/3/0/11
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet1/3/0/12
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet1/3/0/13
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet1/3/0/14
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet1/3/0/15
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet1/3/0/16
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet1/3/0/17
+ port link-mode bridge
+ port link-type trunk
+ undo port trunk permit vlan 1
+ port trunk permit vlan 1001
+ port link-aggregation group 1001
+#
+interface Ten-GigabitEthernet1/3/0/18
+ port link-mode bridge
+ port link-type trunk
+ undo port trunk permit vlan 1
+ port trunk permit vlan 1002
+ port link-aggregation group 1002
+#
+interface Ten-GigabitEthernet1/3/0/19
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet1/3/0/20
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet1/3/0/21
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet1/3/0/22
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet1/3/0/23
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet1/3/0/24
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet1/3/0/25
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet1/3/0/27
+ port link-mode bridge
+ port link-type trunk
+ port trunk permit vlan 1 5 to 6 24 52 56 71 172
+ port link-aggregation group 3
+#
+interface Ten-GigabitEthernet1/3/0/28
+ port link-mode bridge
+ port access vlan 50
+ port link-aggregation group 28
+#
+interface Ten-GigabitEthernet1/3/0/29
+ port link-mode bridge
+ description to-ZX_access_5
+ port link-type trunk
+ port trunk permit vlan 1 to 1000 1003 to 4094
+#
+interface Ten-GigabitEthernet1/3/0/31
+ port link-mode bridge
+ port access vlan 50
+ mirroring-group 4 mirroring-port both
+ port link-aggregation group 31
+#
+interface Ten-GigabitEthernet1/3/0/32
+ port link-mode bridge
+ port link-type trunk
+ port trunk permit vlan 1 50 52 172
+ port link-aggregation group 15
+#
+interface Ten-GigabitEthernet2/3/0/2
+ port link-mode bridge
+ port link-type trunk
+ port trunk permit vlan 1 to 1000 1003 to 4094
+ mirroring-group 2 mirroring-port both
+ port link-aggregation group 1
+#
+interface Ten-GigabitEthernet2/3/0/4
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet2/3/0/5
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet2/3/0/6
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet2/3/0/7
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet2/3/0/8
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet2/3/0/9
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet2/3/0/10
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet2/3/0/11
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet2/3/0/12
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet2/3/0/13
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet2/3/0/14
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet2/3/0/15
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet2/3/0/16
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet2/3/0/17
+ port link-mode bridge
+ port link-type trunk
+ undo port trunk permit vlan 1
+ port trunk permit vlan 1001
+ port link-aggregation group 1001
+#
+interface Ten-GigabitEthernet2/3/0/18
+ port link-mode bridge
+ port link-type trunk
+ undo port trunk permit vlan 1
+ port trunk permit vlan 1002
+ port link-aggregation group 1002
+#
+interface Ten-GigabitEthernet2/3/0/19
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet2/3/0/20
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet2/3/0/21
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet2/3/0/22
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet2/3/0/23
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet2/3/0/24
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet2/3/0/25
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet2/3/0/26
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet2/3/0/27
+ port link-mode bridge
+ port link-type trunk
+ port trunk permit vlan 1 5 to 6 24 52 56 71 172
+ shutdown
+ port link-aggregation group 3
+#
+interface Ten-GigabitEthernet2/3/0/28
+ port link-mode bridge
+ port access vlan 50
+ port link-aggregation group 28
+#
+interface Ten-GigabitEthernet2/3/0/29
+ port link-mode bridge
+#
+interface Ten-GigabitEthernet2/3/0/31
+ port link-mode bridge
+ port access vlan 50
+ mirroring-group 4 mirroring-port both
+ port link-aggregation group 31
+#
+interface Ten-GigabitEthernet2/3/0/32
+ port link-mode bridge
+ port link-type trunk
+ port trunk permit vlan 1 50 52 172
+ port link-aggregation group 15
+#
+route-policy HCSO permit node 10
+ if-match ip address prefix-list VRF_2B_HSCO
+#
+route-policy HCSO deny node 200
+#
+route-policy HSCO-to-SCDD permit node 10
+ if-match ip address acl 2014
+#
+route-policy SCDD-to-HCSO permit node 10
+ if-match ip address acl 2013
+#
+route-policy To-HCSO permit node 10
+ if-match ip address acl 2023
+#
+route-policy To-SCDD permit node 10
+ if-match ip address acl 2010
+#
+route-policy To-XZ permit node 1
+ if-match ip address acl 2000
+#
+ ip prefix-list VRF_2B_HSCO index 10 permit 172.32.8.0 21
+#
+ scheduler logfile size 16
+#
+line class aux
+ user-role network-admin
+#
+line class vty
+ user-role network-operator
+#
+line aux 1/0 1/1
+ authentication-mode password
+ user-role network-admin
+ set authentication password hash $h$6$QZBP2brnCTvTqydz$LWrUmfvsl53oI3flM1NzsbTChHS3HWgm5982cqoSn1XcET1cqMDQD5AZuXpF6JEQB2kP8pHWLw8QrkxUksBe9A==
+#
+line aux 2/0
+ authentication-mode password
+ user-role network-admin
+ set authentication password hash $h$6$cbw15yYDkrJiFO0y$I/caJX5aR8yUyqxY3uxarLc4Dd8XoT1MiBN6Jo/Sa7k4Mk9eR3tJBWDvRDbhsqafSqJ3wJ1CCIzKlgMfozpEOA==
+#
+line aux 2/1
+ authentication-mode password
+ user-role network-admin
+ set authentication password hash $h$6$WdiU3MeAjHRLlSDh$RirG+MNo2Uwb3MJ3c6PMrlDQULrMigGgXuUzl6adUo1NnALMEyseUkR34wBXegn06dl4F72WyaBjbEFqjaYs/w==
+#
+line vty 0 4
+ authentication-mode scheme
+ user-role network-admin
+#
+line vty 5 63
+ user-role network-operator
+#
+ ip route-static 0.0.0.0 0 182.182.182.150
+ ip route-static 2.2.2.1 32 182.182.182.150
+ ip route-static 2.2.2.5 32 182.182.182.150
+ ip route-static 2.2.2.6 32 182.182.182.150
+ ip route-static 2.2.2.254 32 182.182.182.150
+ ip route-static 10.0.0.0 16 182.182.182.110
+ ip route-static 10.1.0.0 16 182.182.182.110
+ ip route-static 10.2.0.0 16 182.182.182.110
+ ip route-static 10.3.0.0 16 182.182.182.110
+ ip route-static 10.4.0.0 16 182.182.182.110
+ ip route-static 10.8.0.0 16 182.182.182.110
+ ip route-static 10.8.8.20 32 182.182.182.110
+ ip route-static 10.9.0.0 16 182.182.182.110
+ ip route-static 10.9.11.0 24 182.182.182.150
+ ip route-static 10.9.19.75 32 182.182.182.110
+ ip route-static 10.10.10.37 32 182.182.182.150
+ ip route-static 10.10.10.101 32 182.182.182.150
+ ip route-static 10.10.10.103 32 182.182.182.150
+ ip route-static 10.10.10.175 32 182.182.182.150
+ ip route-static 10.10.10.176 32 182.182.182.150
+ ip route-static 10.10.11.78 32 182.182.182.150
+ ip route-static 10.10.11.113 32 182.182.182.150
+ ip route-static 10.20.0.10 32 182.182.182.110
+ ip route-static 10.20.0.20 32 182.182.182.110
+ ip route-static 10.20.6.0 24 182.182.182.110
+ ip route-static 10.20.7.0 24 182.182.182.110
+ ip route-static 10.28.0.0 17 182.182.182.50
+ ip route-static 10.28.255.0 24 28.28.28.2
+ ip route-static 10.29.8.0 24 182.182.182.180
+ ip route-static 10.29.12.0 24 182.182.182.180
+ ip route-static 10.29.16.0 24 182.182.182.180
+ ip route-static 10.29.32.0 24 182.182.182.180
+ ip route-static 10.29.48.0 24 182.182.182.180
+ ip route-static 10.29.64.0 24 182.182.182.180
+ ip route-static 10.29.248.0 24 182.182.182.180
+ ip route-static 10.29.255.0 24 182.182.182.180
+ ip route-static 10.30.0.0 21 1.1.1.1
+ ip route-static 10.30.8.0 22 182.182.182.70
+ ip route-static 10.43.20.25 32 182.182.182.70
+ ip route-static 10.145.0.0 21 172.16.254.1
+ ip route-static 17.17.16.0 22 182.182.182.180
+ ip route-static 18.18.16.0 22 182.182.182.180
+ ip route-static 47.111.238.0 24 182.182.182.150
+ ip route-static 66.6.6.0 24 182.182.182.180
+ ip route-static 100.100.17.0 26 182.182.182.70
+ ip route-static 102.102.102.0 30 182.182.182.10
+ ip route-static 105.105.104.0 24 182.182.182.70
+ ip route-static 105.105.105.0 24 182.182.182.70
+ ip route-static 152.152.152.0 24 182.182.182.10
+ ip route-static 162.162.162.0 24 182.182.182.70
+ ip route-static 172.16.0.0 16 182.182.182.110
+ ip route-static 172.16.248.0 22 172.16.254.1
+ ip route-static 172.16.248.0 22 172.16.254.5
+ ip route-static 172.16.250.0 24 172.16.254.1
+ ip route-static 172.16.250.0 24 172.16.254.5
+ ip route-static 172.16.255.0 25 172.16.254.1
+ ip route-static 172.16.255.0 25 172.16.254.5
+ ip route-static 172.16.255.144 32 172.16.254.5
+ ip route-static 172.16.255.144 32 172.16.254.1
+ ip route-static 172.17.144.121 32 182.182.182.211
+ ip route-static 172.18.1.0 24 182.182.182.180
+ ip route-static 172.18.3.0 24 182.182.182.180
+ ip route-static 172.18.6.0 23 182.182.182.180
+ ip route-static 172.18.8.0 22 182.182.182.180
+ ip route-static 172.18.15.0 24 182.182.182.15
+ ip route-static 172.18.252.64 26 182.182.182.180
+ ip route-static 172.19.152.0 22 172.16.254.5
+ ip route-static 172.19.152.0 22 172.16.254.1
+ ip route-static 172.19.156.0 24 172.16.254.1
+ ip route-static 172.19.156.0 24 172.16.254.5
+ ip route-static 172.19.158.0 24 172.16.254.1
+ ip route-static 172.19.159.95 32 172.16.254.1
+ ip route-static 172.19.159.179 32 172.16.254.1
+ ip route-static 172.19.159.180 32 172.16.254.1
+ ip route-static 172.19.159.181 32 172.16.254.1
+ ip route-static 172.19.159.199 32 172.16.254.1
+ ip route-static 172.19.160.0 21 172.16.254.1
+ ip route-static 172.19.160.0 21 172.16.254.5
+ ip route-static 172.19.165.0 24 172.16.254.1
+ ip route-static 172.19.168.0 24 172.16.254.1
+ ip route-static 172.19.168.0 24 172.16.254.5
+ ip route-static 172.19.169.0 24 172.16.254.1
+ ip route-static 172.19.169.0 24 172.16.254.5
+ ip route-static 172.19.170.0 24 172.16.254.1
+ ip route-static 172.19.170.0 24 172.16.254.5
+ ip route-static 172.19.172.0 24 172.16.254.1
+ ip route-static 172.19.172.0 24 172.16.254.5
+ ip route-static 172.19.173.0 24 172.16.254.5
+ ip route-static 172.19.173.0 24 172.16.254.1
+ ip route-static 172.19.176.0 24 172.16.254.1
+ ip route-static 172.19.176.0 24 172.16.254.5
+ ip route-static 172.19.177.128 25 172.16.254.1
+ ip route-static 172.19.177.128 25 172.16.254.5
+ ip route-static 172.19.188.0 24 182.182.182.10
+ ip route-static 172.19.253.0 24 182.182.182.10
+ ip route-static 172.19.254.0 24 182.182.182.10
+ ip route-static 172.19.255.160 27 15.1.1.2
+ ip route-static 172.172.172.0 24 182.182.182.150
+ ip route-static 188.1.1.0 24 25.1.1.1
+ ip route-static 188.2.2.0 24 26.1.1.1
+ ip route-static 188.2.2.0 24 27.1.1.1
+ ip route-static 192.168.2.0 24 172.16.254.1
+ ip route-static 192.168.2.0 24 172.16.254.5
+ ip route-static 192.168.3.0 24 172.16.254.1
+ ip route-static 192.168.3.0 24 172.16.254.5
+ ip route-static 192.168.4.0 24 172.16.254.1
+ ip route-static 192.168.4.0 24 172.16.254.5
+ ip route-static 192.168.8.0 22 182.182.182.50
+ ip route-static 192.168.10.0 24 182.182.182.150
+ ip route-static 192.168.10.91 32 172.16.254.1
+ ip route-static 192.168.10.96 32 172.16.254.1
+ ip route-static 192.168.12.0 24 182.182.182.50
+ ip route-static 192.168.16.0 20 182.182.182.50
+ ip route-static 192.168.20.0 24 182.182.182.150
+ ip route-static 192.168.20.2 32 172.19.116.6
+ ip route-static 192.168.20.54 32 182.182.182.50
+ ip route-static 192.168.20.100 32 172.19.116.6
+ ip route-static 192.168.20.102 32 182.182.182.50
+ ip route-static 192.168.20.110 32 182.182.182.50
+ ip route-static 192.168.20.111 32 182.182.182.50
+ ip route-static 192.168.20.112 32 182.182.182.50
+ ip route-static 192.168.20.120 32 172.19.116.6
+ ip route-static 192.168.20.200 32 172.19.116.6
+ ip route-static 192.168.21.0 24 182.182.182.150
+ ip route-static 192.168.22.0 24 182.182.182.150
+ ip route-static 192.168.24.253 32 182.182.182.150
+ ip route-static 192.168.29.0 24 182.182.182.50
+ ip route-static 192.168.30.0 24 182.182.182.50
+ ip route-static 192.168.30.4 32 182.182.182.150
+ ip route-static 192.168.30.8 32 182.182.182.150
+ ip route-static 192.168.30.11 32 182.182.182.150
+ ip route-static 192.168.30.12 32 182.182.182.150
+ ip route-static 192.168.30.13 32 182.182.182.150
+ ip route-static 192.168.30.17 32 182.182.182.150
+ ip route-static 192.168.30.19 32 182.182.182.150
+ ip route-static 192.168.30.22 32 182.182.182.150
+ ip route-static 192.168.30.27 32 172.16.254.1
+ ip route-static 192.168.30.31 32 182.182.182.150
+ ip route-static 192.168.30.32 32 182.182.182.150
+ ip route-static 192.168.30.33 32 182.182.182.150
+ ip route-static 192.168.30.34 32 182.182.182.150
+ ip route-static 192.168.30.46 32 172.16.254.1
+ ip route-static 192.168.30.50 32 182.182.182.150
+ ip route-static 192.168.30.51 32 182.182.182.150
+ ip route-static 192.168.30.52 32 182.182.182.150
+ ip route-static 192.168.30.53 32 182.182.182.150
+ ip route-static 192.168.30.54 32 182.182.182.150
+ ip route-static 192.168.30.55 32 182.182.182.150
+ ip route-static 192.168.30.56 32 182.182.182.150
+ ip route-static 192.168.30.62 32 182.182.182.150
+ ip route-static 192.168.30.75 32 182.182.182.150
+ ip route-static 192.168.30.78 32 182.182.182.150
+ ip route-static 192.168.30.88 32 182.182.182.150
+ ip route-static 192.168.30.114 32 182.182.182.150
+ ip route-static 192.168.30.115 32 172.16.254.1
+ ip route-static 192.168.30.119 32 182.182.182.150
+ ip route-static 192.168.30.123 32 182.182.182.150
+ ip route-static 192.168.30.147 32 182.182.182.150
+ ip route-static 192.168.30.181 32 182.182.182.150
+ ip route-static 192.168.30.188 32 182.182.182.150
+ ip route-static 192.168.30.212 32 182.182.182.150
+ ip route-static 192.168.31.0 24 172.18.100.9
+ ip route-static 192.168.31.10 32 182.182.182.50
+ ip route-static 192.168.31.181 32 182.182.182.50
+ ip route-static 192.168.32.0 24 182.182.182.50
+ ip route-static 192.168.37.0 24 182.182.182.50
+ ip route-static 192.168.40.100 32 182.182.182.150
+ ip route-static 192.168.40.250 32 182.182.182.150
+ ip route-static 192.168.44.0 24 182.182.182.50
+ ip route-static 192.168.44.10 32 182.182.182.50
+ ip route-static 192.168.45.0 24 182.182.182.50
+ ip route-static 192.168.60.67 32 182.182.182.150
+ ip route-static 192.168.100.11 32 182.182.182.150
+ ip route-static 192.168.110.40 32 182.182.182.150
+ ip route-static 192.168.110.41 32 182.182.182.150
+ ip route-static 192.168.160.0 24 172.19.196.2
+ ip route-static 192.168.161.0 24 172.18.119.254
+ ip route-static 192.168.168.0 24 182.182.182.110
+ ip route-static 192.168.174.10 32 182.182.182.50
+ ip route-static 192.168.192.243 32 182.182.182.110
+ ip route-static 192.168.193.0 24 182.182.182.110
+ ip route-static 192.168.196.37 32 182.182.182.110
+ ip route-static 192.168.196.38 32 182.182.182.110
+ ip route-static 192.168.196.39 32 182.182.182.110
+ ip route-static 192.168.196.40 32 182.182.182.110
+ ip route-static 192.168.196.64 32 182.182.182.110
+ ip route-static 192.168.196.69 32 182.182.182.110
+ ip route-static 192.168.196.70 32 182.182.182.110
+ ip route-static 192.168.196.71 32 182.182.182.110
+ ip route-static 192.168.197.0 24 182.182.182.110
+ ip route-static 192.168.198.30 32 182.182.182.110
+ ip route-static 192.168.200.0 24 182.182.182.150
+ ip route-static 192.168.200.8 32 182.182.182.150
+ ip route-static 192.168.200.242 32 182.182.182.110
+ ip route-static 192.168.200.243 32 182.182.182.110
+ ip route-static 192.168.201.0 30 182.182.182.110
+ ip route-static 192.168.251.1 32 182.182.182.110
+ ip route-static 192.168.251.2 32 182.182.182.110
+ ip route-static 192.168.251.5 32 182.182.182.110
+ ip route-static 192.168.251.6 32 182.182.182.110
+ ip route-static 192.168.251.9 32 182.182.182.110
+ ip route-static 192.168.251.10 32 182.182.182.110
+ ip route-static 192.168.252.0 24 182.182.182.110
+ ip route-static 192.168.253.0 24 182.182.182.110
+ ip route-static 192.192.10.0 23 182.182.182.150
+ ip route-static 192.198.198.0 23 182.182.182.170
+ ip route-static 196.196.196.0 24 182.182.182.180
+ ip route-static 200.200.200.0 24 182.182.182.10
+ ip route-static 200.200.201.0 24 182.182.182.180
+#
+ info-center loghost 172.18.12.10
+ info-center loghost 182.182.182.253
+#
+ snmp-agent
+ snmp-agent local-engineid 800063A280DCDA804ACA0100000001
+ snmp-agent community write cipher $c$3$UG7WC/6+SSGtylAd3s0Avh9JEsBc4kM=
+ snmp-agent sys-info version all
+#
+ ssh server enable
+ ssh server compatible-ssh1x enable
+#
+ arp static 172.18.12.32 0001-450a-690b
+#
+ qos vlan-policy c2 vlan 300 inbound
+ qos vlan-policy g2 vlan 52 inbound
+#
+ ntp-service enable
+ ntp-service unicast-server 10.28.96.99 source Vlan-interface1
+#
+acl number 2000
+ description To-XZ
+ rule 0 permit source 172.18.1.0 0.0.0.255
+ rule 1 permit source 172.20.104.0 0.0.0.255
+ rule 2 permit source 172.18.8.0 0.0.3.255
+ rule 3 permit source 172.18.12.0 0.0.0.255
+ rule 4 permit source 172.18.3.0 0.0.0.255
+ rule 5 permit source 192.198.198.0 0.0.0.255
+ rule 6 permit source 172.18.28.0 0.0.3.255
+ rule 7 permit source 172.18.66.0 0.0.0.255
+ rule 8 permit source 172.18.6.0 0.0.0.255
+ rule 9 permit source 172.18.13.0 0.0.0.255
+#
+acl number 2010
+ description To-SCDD
+ rule 0 permit source 172.18.1.0 0.0.0.255
+ rule 1 permit source 172.18.6.0 0.0.1.255
+ rule 2 permit source 172.18.4.0 0.0.1.255
+ rule 3 permit source 172.18.8.0 0.0.3.255
+ rule 4 permit source 172.18.12.0 0.0.0.255
+ rule 5 permit source 172.18.13.0 0.0.0.255
+ rule 6 permit source 172.18.28.0 0.0.3.255
+ rule 7 permit source 172.18.32.0 0.0.0.255
+ rule 8 permit source 172.18.36.0 0.0.0.255
+ rule 9 permit source 172.18.100.0 0.0.0.255
+ rule 10 permit source 172.18.108.0 0.0.0.255
+ rule 11 permit source 172.18.150.0 0.0.0.255
+ rule 12 permit source 172.18.157.0 0.0.0.255
+ rule 13 permit source 172.19.116.0 0.0.0.255
+ rule 14 permit source 172.21.108.0 0.0.0.255
+ rule 15 permit source 172.21.100.0 0.0.0.255
+ rule 16 permit source 172.18.252.0 0.0.0.64
+ rule 17 permit source 10.29.12.0 0.0.0.255
+ rule 18 permit source 172.172.172.0 0.0.0.255
+ rule 19 permit source 172.18.254.0 0.0.1.255
+ rule 20 permit source 10.28.0.0 0.0.255.255
+ rule 21 permit source 172.18.22.0 0.0.0.255
+ rule 22 permit source 182.182.182.0 0.0.0.255
+ rule 23 permit source 172.19.128.0 0.0.0.255
+ rule 24 permit source 172.21.104.0 0.0.0.255
+ rule 25 permit source 172.18.3.0 0.0.0.255
+ rule 26 permit source 172.18.40.0 0.0.3.255
+ rule 27 permit source 172.18.152.0 0.0.0.255
+ rule 28 permit source 172.18.104.0 0.0.0.255
+ rule 29 permit source 10.45.0.0 0.0.0.255
+ rule 30 permit source 10.45.1.0 0.0.0.255
+ rule 31 permit source 10.51.0.0 0.0.15.255
+ rule 32 permit source 172.18.14.0 0.0.0.255
+ rule 33 permit source 172.19.124.0 0.0.0.255
+ rule 34 permit source 172.18.18.0 0.0.0.255
+ rule 35 permit source 172.18.66.0 0.0.0.255
+ rule 36 permit source 47.111.238.0 0.0.0.255
+ rule 37 permit source 172.18.15.0 0.0.0.255
+ rule 38 permit source 172.16.255.0 0.0.0.255
+#
+acl number 2013
+ description SCDD-to-HCSO
+ rule 0 permit source 172.19.150.0 0.0.0.255
+ rule 1 permit source 172.19.192.0 0.0.0.255
+ rule 2 permit source 172.19.204.0 0.0.0.255
+ rule 3 permit source 172.19.200.0 0.0.0.255
+ rule 4 permit source 192.168.40.0 0.0.0.255
+#
+acl number 2014
+ description HSCO-to-SCDD
+ rule 0 permit source 172.32.9.0 0
+ rule 1 permit source 172.32.84.0 0.0.0.255
+ rule 2 permit source 172.32.66.0 0.0.0.255
+ rule 3 permit source 172.32.72.0 0.0.0.255
+ rule 4 permit source 172.32.64.0 0.0.0.255
+ rule 5 permit source 172.32.12.0 0.0.0.255
+ rule 6 permit source 10.59.0.0 0.0.0.255
+ rule 7 permit source 172.32.79.0 0.0.0.255
+#
+acl number 2023
+ description To-HCSO
+ rule 0 permit source 172.18.1.0 0.0.0.255
+ rule 1 permit source 172.18.6.0 0.0.1.255
+ rule 2 permit source 172.18.3.0 0.0.0.255
+ rule 3 permit source 172.18.13.0 0.0.0.255
+ rule 4 permit source 172.18.20.0 0.0.0.255
+ rule 5 permit source 172.18.4.0 0.0.0.255
+ rule 6 permit source 172.18.12.0 0.0.0.255
+ rule 7 permit source 172.18.16.0 0.0.0.255
+ rule 8 permit source 172.18.28.0 0.0.0.252
+ rule 9 permit source 172.18.40.0 0.0.0.252
+ rule 10 permit source 172.18.116.0 0.0.0.252
+ rule 11 permit source 172.19.180.0 0.0.0.255
+ rule 12 permit source 172.18.32.0 0.0.0.252
+ rule 13 permit source 172.18.36.0 0.0.0.255
+ rule 14 permit source 172.18.14.0 0.0.0.255
+ rule 15 permit source 172.18.22.0 0.0.0.255
+ rule 16 permit source 172.21.108.0 0.0.0.255
+ rule 17 permit source 172.19.168.0 0.0.0.255
+ rule 18 permit source 172.19.160.0 0.0.0.252
+ rule 19 permit source 172.19.188.0 0.0.0.255
+ rule 20 permit source 172.18.100.0 0.0.0.255
+ rule 21 permit source 172.18.66.0 0.0.0.255
+ rule 22 permit source 172.18.18.0 0.0.0.255
+ rule 23 permit source 182.182.182.0 0.0.0.255
+ rule 24 permit source 172.19.184.0 0.0.0.255
+ rule 25 permit source 172.18.157.0 0.0.0.255
+ rule 26 permit source 10.28.0.0 0.0.127.255
+ rule 27 permit source 172.18.150.0 0.0.0.255
+ rule 28 permit source 172.19.128.0 0.0.0.255
+ rule 29 permit source 172.19.120.0 0.0.0.255
+ rule 30 permit source 172.172.172.0 0.0.0.255
+ rule 31 permit source 172.19.196.0 0.0.0.255
+ rule 32 permit source 172.18.152.0 0.0.0.255
+ rule 33 permit source 172.21.105.0 0.0.0.255
+ rule 35 permit source 172.19.169.0 0.0.0.255
+ rule 36 permit source 172.18.15.0 0.0.0.255
+ rule 37 permit source 10.10.11.0 0.0.0.255
+ rule 38 permit source 172.19.112.0 0.0.0.255
+ rule 39 permit source 172.19.173.0 0.0.0.255
+ rule 40 permit source 10.9.11.0 0.0.0.255
+ rule 41 permit source 192.168.251.0 0.0.0.255
+ rule 42 permit source 172.19.152.0 0.0.0.253
+ rule 43 permit source 172.18.104.0 0.0.0.255
+ rule 44 permit source 172.18.151.146 0.0.0.1
+ rule 45 permit source 172.19.102.0 0.0.0.255
+ rule 46 permit source 10.8.8.0 0.0.0.255
+ rule 47 permit source 10.9.19.0 0.0.0.255
+ rule 48 permit source 172.19.172.0 0.0.0.255
+#
+acl advanced 3000
+ rule 0 permit ip
+#
+acl advanced 3001
+#
+acl advanced 3010
+ rule 5 deny ip destination 172.18.18.11 0
+ rule 6 deny ip source 172.19.168.251 0 destination 172.18.18.11 0
+ rule 10 permit ip
+#
+acl number 3021
+ rule 5 permit tcp source 172.18.13.116 0 source-port eq 8070
+ rule 10 permit tcp source 172.18.13.221 0 source-port eq www
+#
+acl number 3031
+ rule 5 permit tcp destination 172.18.13.116 0 destination-port eq 8070
+ rule 10 permit tcp destination 172.18.13.221 0 destination-port eq www
+#
+acl advanced name anti-virus
+ rule 5 deny tcp destination-port eq 5554
+ rule 10 deny tcp destination-port eq 9995
+ rule 15 deny tcp destination-port eq 9996
+ rule 20 deny tcp destination-port eq 4444
+ rule 25 deny tcp destination-port eq 1068
+ rule 30 deny tcp destination-port eq 4899
+ rule 45 deny tcp destination-port range 135 139
+ rule 50 deny tcp destination-port eq 445
+ rule 55 deny udp destination-port eq 135
+ rule 60 deny udp destination-port eq 136
+ rule 65 deny udp destination-port eq netbios-ssn
+ rule 70 deny udp destination-port eq netbios-dgm
+ rule 75 deny udp destination-port eq netbios-ns
+#
+acl advanced name anti-virus1
+ rule 5 deny tcp destination-port eq 5554
+ rule 10 deny tcp destination-port eq 9995
+ rule 15 deny tcp destination-port eq 9996
+ rule 20 deny tcp destination-port eq 4444
+ rule 25 deny tcp destination-port eq 1068
+ rule 30 deny tcp destination-port eq 4899
+ rule 45 deny tcp destination-port range 135 139
+ rule 50 deny tcp destination-port eq 445
+ rule 55 deny udp destination-port eq 135
+ rule 60 deny udp destination-port eq 136
+ rule 65 deny udp destination-port eq netbios-ssn
+ rule 70 deny udp destination-port eq netbios-dgm
+ rule 75 deny udp destination-port eq netbios-ns
+#
+domain system
+#
+ domain default enable system
+#
+role name level-0
+ description Predefined level-0 role
+#
+role name level-1
+ description Predefined level-1 role
+#
+role name level-2
+ description Predefined level-2 role
+#
+role name level-3
+ description Predefined level-3 role
+#
+role name level-4
+ description Predefined level-4 role
+#
+role name level-5
+ description Predefined level-5 role
+#
+role name level-6
+ description Predefined level-6 role
+#
+role name level-7
+ description Predefined level-7 role
+#
+role name level-8
+ description Predefined level-8 role
+#
+role name level-9
+ description Predefined level-9 role
+#
+role name level-10
+ description Predefined level-10 role
+#
+role name level-11
+ description Predefined level-11 role
+#
+role name level-12
+ description Predefined level-12 role
+#
+role name level-13
+ description Predefined level-13 role
+#
+role name level-14
+ description Predefined level-14 role
+#
+user-group system
+#
+local-user admin class manage
+ password hash $h$6$SPPoymin3iznucKF$xIWdDlGQOweebU5U3B7JGoy3qZaHaJ71tCKVswnh93/HHkACaoXOTqGuQePdRAvnGwgPr1bDlQ0Ra68ibIIKkg==
+ service-type telnet https ssh
+ authorization-attribute user-role network-admin
+ authorization-attribute user-role network-operator
+#
+local-user zz class manage
+ password hash $h$6$4L0KhkNCFyZtCVaK$/EU1Ygo9T9YCy2HIyafDMwHRUyYuGllGVZcY0dmbBNw8MyFaa83yqmJu4xKy8T6kjIJCXV67dkVtJJcqz5cWVw==
+ service-type telnet ssh
+ authorization-attribute user-role network-admin
+#
+return

@@ -142,6 +142,28 @@
               </el-button>
             </el-col>
             <el-col :span="1.5">
+              <el-button
+                v-hasPerm="['module_gencode:switch_info:getSwitchConfig']"
+                type="primary"
+                icon="Document"
+                :disabled="selectIds.length !== 1"
+                @click="handleOpenDialog('backup',selectIds[0])"
+              >
+                获取配置
+              </el-button>
+            </el-col>
+            <!-- <el-col :span="1.5">
+              <el-button
+                v-hasPerm="['module_gencode:switch_info:batch']"
+                type="primary"
+                icon="Operation"
+                :disabled="selectIds.length <=1"
+                @click=""
+              >
+                批量备份
+              </el-button>
+            </el-col> -->
+            <el-col :span="1.5">
               <el-dropdown v-hasPerm="['module_gencode:switch_info:batch']" trigger="click">
                 <el-button type="default" :disabled="selectIds.length === 0" icon="ArrowDown">
                   更多
@@ -503,7 +525,7 @@
       </template>
 
       <!-- 新增、编辑表单 -->
-      <template v-else>
+      <template v-else-if="dialogVisible.type=='create' || dialogVisible.type=='update'">
         <el-form
           ref="dataFormRef"
           :model="formData"
@@ -561,6 +583,71 @@
         </el-form>
       </template>
 
+      <!-- 备份表单 -->
+      <template v-else-if="dialogVisible.type=='backup'">
+        <el-descriptions :column="4" border>
+          <el-descriptions-item label="交换机名称" :span="2">
+            {{ backupFormData.name }}
+          </el-descriptions-item>
+          <el-descriptions-item label="交换机IP" :span="2">
+            {{ backupFormData.ip }}
+          </el-descriptions-item>
+          <el-descriptions-item label="交换机品牌" :span="2">
+            {{ backupFormData.brand }}
+          </el-descriptions-item>
+          <el-descriptions-item label="管理方式" :span="2">
+            {{ backupFormData.manageWay }}
+          </el-descriptions-item>
+          <el-descriptions-item label="用户名" :span="4">
+            {{ backupFormData.username }}
+          </el-descriptions-item>
+          <el-descriptions-item label="密码" :span="2">
+            {{ backupFormData.password }}
+          </el-descriptions-item>
+          <el-descriptions-item label="enable密码" :span="2">
+            {{ backupFormData.enablePassword }}
+          </el-descriptions-item>
+        </el-descriptions>
+        <div style="margin-top: 10px;margin-bottom: 10px;">
+          <el-row :gutter="10">
+            <el-col :span="1.5">
+              <el-button type="primary" @click="getSwitchConfig(backupFormData)">获取设备配置</el-button>
+            </el-col>
+            <el-col :span="1.5">
+              <el-tooltip 
+                content="将配置文件上传到服务器的 /switchconfig/ 目录"
+                placement="top"
+              >
+                <el-button 
+                  type="success" 
+                  :disabled="saveConfigToServer" 
+                  icon="download" 
+                  @click="saveConfig('server')"
+                >
+                  保存配置到服务器
+                </el-button>
+              </el-tooltip>
+            </el-col>
+            <el-col :span="1.5">
+              <el-tooltip 
+                content="将配置文件下载到本地计算机"
+                placement="top"
+              >
+                <el-button 
+                  type="success" 
+                  :disabled="saveConfigToLocal" 
+                  icon="download" 
+                  @click="saveConfig('local')"
+                >
+                  保存配置到本地
+                </el-button>
+              </el-tooltip>
+            </el-col>
+          </el-row>
+        </div>
+        <el-input v-loading="getSwitchConfigLoading" v-model="switchConfig" type="textarea" :rows="10"></el-input>
+      </template>
+
       <template #footer>
         <div class="dialog-footer">
           <!-- 详情弹窗不需要确定按钮的提交逻辑 -->
@@ -611,7 +698,9 @@ import SwitchInfoAPI, {
   SwitchInfoPageQuery,
   SwitchInfoTable,
   SwitchInfoForm,
+  SwitchInfoConnectForm,
 } from "@/api/module_gencode/switch_info";
+import ResourceAPI from "@/api/module_monitor/resource";
 
 const visible = ref(true);
 const isExpand = ref(false);
@@ -622,6 +711,10 @@ const total = ref(0);
 const selectIds = ref<number[]>([]);
 const selectionRows = ref<SwitchInfoTable[]>([]);
 const loading = ref(false);
+const getSwitchConfigLoading = ref(false);
+const switchConfig = ref(""); //获取的交换机的配置内容
+const saveConfigToServer = ref(true); //是否保存配置到服务器
+const saveConfigToLocal = ref(true); //是否保存配置到本地
 
 // 字典仓库与需要加载的字典类型
 const dictStore = useDictStore();
@@ -759,29 +852,40 @@ const formData = reactive<SwitchInfoForm>({
   description: undefined,
 });
 
+// 备份配置表单
+const backupFormData = reactive<SwitchInfoConnectForm>({
+  name: undefined,
+  ip: undefined,
+  brand:undefined,
+  manageWay:undefined,
+  username:undefined,
+  password:undefined,
+  enablePassword:undefined,
+});
+
 // 弹窗状态
 const dialogVisible = reactive({
   title: "",
   visible: false,
-  type: "create" as "create" | "update" | "detail",
+  type: "create" as "create" | "update" | "detail" | "backup",
 });
 
 // 表单验证规则
 const rules = reactive({
-  name: [{ required: true, message: "请输入名称", trigger: "blur" }],
-  ip: [{ required: false, message: "请输入IP", trigger: "blur" }],
+  name: [{ required: false, message: "请输入名称", trigger: "blur" }],
+  ip: [{ required: true, message: "请输入IP", trigger: "blur" }],
   brand: [{ required: true, message: "请输入品牌", trigger: "blur" }],
-  model: [{ required: true, message: "请输入型号", trigger: "blur" }],
+  model: [{ required: false, message: "请输入型号", trigger: "blur" }],
   manageWay: [{ required: true, message: "请输入管理方式", trigger: "blur" }],
-  username: [{ required: true, message: "请输入用户名", trigger: "blur" }],
+  username: [{ required: false, message: "请输入用户名", trigger: "blur" }],
   password: [{ required: true, message: "请输入密码", trigger: "blur" }],
-  enablePassword: [{ required: true, message: "请输入enable密码", trigger: "blur" }],
-  serviceType: [{ required: true, message: "请输入服务类型", trigger: "blur" }],
-  location: [{ required: true, message: "请输入安装位置", trigger: "blur" }],
+  enablePassword: [{ required: false, message: "请输入enable密码", trigger: "blur" }],
+  serviceType: [{ required: false, message: "请输入服务类型", trigger: "blur" }],
+  location: [{ required: false, message: "请输入安装位置", trigger: "blur" }],
   id: [{ required: false, message: "请输入主键ID", trigger: "blur" }],
   uuid: [{ required: false, message: "请输入UUID全局唯一标识", trigger: "blur" }],
   status: [{ required: false, message: "请输入是否启用(0:启用 1:禁用)", trigger: "blur" }],
-  description: [{ required: true, message: "请输入备注/描述", trigger: "blur" }],
+  description: [{ required: false, message: "请输入备注/描述", trigger: "blur" }],
   created_time: [{ required: false, message: "请输入创建时间", trigger: "blur" }],
   updated_time: [{ required: false, message: "请输入更新时间", trigger: "blur" }],
   created_id: [{ required: true, message: "请输入创建人ID", trigger: "blur" }],
@@ -886,7 +990,7 @@ async function handleCloseDialog() {
 }
 
 // 打开弹窗
-async function handleOpenDialog(type: "create" | "update" | "detail", id?: number) {
+async function handleOpenDialog(type: "create" | "update" | "detail" | "backup", id?: number) {
   dialogVisible.type = type;
   if (id) {
     const response = await SwitchInfoAPI.detailSwitchInfo(id);
@@ -896,6 +1000,18 @@ async function handleOpenDialog(type: "create" | "update" | "detail", id?: numbe
     } else if (type === "update") {
       dialogVisible.title = "修改";
       Object.assign(formData, response.data.data);
+    }else if (type === "backup") {
+      // console.log("备份")
+      dialogVisible.title = "备份";
+      console.log(response.data.data)
+      backupFormData.name = response.data.data.name;
+      backupFormData.ip = response.data.data.ip;
+      backupFormData.brand = response.data.data.brand;
+      backupFormData.manageWay = response.data.data.manageWay;
+      backupFormData.username = response.data.data.username;
+      backupFormData.password = response.data.data.password;
+      backupFormData.enablePassword = response.data.data.enablePassword;
+      // console.log("backupFormData的值： ",backupFormData)
     }
   } else {
     dialogVisible.title = "新增SwitchInfo";
@@ -1022,6 +1138,94 @@ onMounted(async () => {
   }
   loadingData();
 });
+
+
+// 获取设备配置
+async function getSwitchConfig(data: SwitchInfoConnectForm){
+  try{
+    getSwitchConfigLoading.value=true
+    const response=await SwitchInfoAPI.backupConfig(data)
+    console.log(response)
+    if(response.status===200){
+      // console.log(response.data.data)
+      switchConfig.value=response.data.data
+      saveConfigToServer.value=false
+      saveConfigToLocal.value=false
+    }else{
+      switchConfig.value="获取配置失败，请检查网络或交换机连接信息是否正确！"
+    }
+  }
+  catch(error:any){
+    console.log("获取设备配置时出错："+error)
+  }
+  finally{
+    getSwitchConfigLoading.value=false
+  }
+}
+
+// 保存获取的配置
+async function saveConfig(location: string) {
+  console.log("保存配置到：" + location);
+  
+  if (location === "server") {
+    // 保存配置到服务器
+    try {
+      // 验证配置内容
+      if (!switchConfig.value || switchConfig.value.trim() === "") {
+        ElMessage.warning("没有配置内容可以上传，请先获取设备配置");
+        return;
+      }
+      
+      const formData = new FormData();
+      
+      const blob = new Blob([switchConfig.value], { type: "text/plain;charset=utf-8" });
+      const fileName = `${backupFormData.ip || "defaultIP"}${backupFormData.name ? "-" + backupFormData.name : ""}-switchConfig.txt`;
+      const file = new File([blob], fileName, { type: "text/plain" });
+      
+      formData.append("file", file);
+      // 设置目标路径为 switchconfig 目录
+      formData.append("target_path", "switchconfig");
+      
+      const response = await ResourceAPI.uploadFile(formData);
+    } catch (error: any) {
+      console.error("上传配置文件失败：", error);
+      ElMessage.error({
+        message: `上传失败：${error.message || '网络错误'}`,
+        duration: 5000,
+      });
+    }
+  } else if (location === "local") {
+    // 将 switchConfig.value 以 txt 格式保存到本地
+    const blob = new Blob([switchConfig.value], { type: "text/plain;charset=utf-8" });
+    const aLink = document.createElement("a");
+    const fileName = `${backupFormData.ip || "defaultIP"}${backupFormData.name ? "-" + backupFormData.name : ""}-switchConfig.txt`;
+    aLink.download = fileName;
+    aLink.href = URL.createObjectURL(blob);
+    aLink.click();
+    
+    // 释放 URL 对象
+    setTimeout(() => {
+      URL.revokeObjectURL(aLink.href);
+    }, 100);
+    
+    ElMessage.success(`配置文件 "${fileName}" 已保存到本地！`);
+  }
+}
+
+// 添加一个辅助函数格式化文件大小（与 resource.vue 中的相同）
+function formatFileSize(size?: number | null) {
+  if (!size || size === null) return "-";
+  const units = ["B", "KB", "MB", "GB", "TB"];
+  let unitIndex = 0;
+  let fileSize = size;
+
+  while (fileSize >= 1024 && unitIndex < units.length - 1) {
+    fileSize /= 1024;
+    unitIndex++;
+  }
+
+  return `${fileSize.toFixed(1)} ${units[unitIndex]}`;
+}
 </script>
 
 <style lang="scss" scoped></style>

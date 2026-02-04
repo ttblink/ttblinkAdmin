@@ -37,18 +37,18 @@ class Switch:
         enablePassword=data.get("enablePassword")
         # 连接交换机,获取日志
         try:
-            log_reault=""
+            config_result=""
             if brand=="华三":
-                log_reault=await cls.connect_switch_send_command_service(ip, manageWay, brand, username, password, enablePassword, "display current-configuration")
+                config_result=await cls.connect_switch_send_command_service(ip, manageWay, brand, username, password, enablePassword, "display current-configuration")
             elif brand=="华为":
-                log_reault=await cls.connect_switch_send_command_service(ip, manageWay, brand, username, password, enablePassword, "display current-configuration")
+                config_result=await cls.connect_switch_send_command_service(ip, manageWay, brand, username, password, enablePassword, "display current-configuration")
             elif brand=="思科":
-                log_reault=await cls.connect_switch_send_command_service(ip, manageWay, brand, username, password, enablePassword, "show running-config")
+                log_config_resultreault=await cls.connect_switch_send_command_service(ip, manageWay, brand, username, password, enablePassword, "show running-config")
             elif brand=="其他":
-                log_reault="暂不支持其他品牌交换机日志获取"
-            return log_reault
+                config_result="暂不支持其他品牌交换机的配置文件获取"
+            return config_result
         except Exception as e:
-            raise CustomException(msg=f"获取交换机日志失败: {str(e)}")
+            raise CustomException(msg=f"获取交换机配置文件失败: {str(e)}")
         
     
     @classmethod
